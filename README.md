@@ -1,5 +1,5 @@
 # cachelib
-A simple cache for go apps
+A simple global cache for go apps. Includes a mutex so it's concurrency safe.
 
 [![GoDoc](https://godoc.org/github.com/karlpokus/cachelib?status.svg)](https://godoc.org/github.com/karlpokus/cachelib)
 
