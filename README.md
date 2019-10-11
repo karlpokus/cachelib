@@ -1,6 +1,8 @@
 # cachelib
 A simple cache for go apps
 
+[![GoDoc](https://godoc.org/github.com/karlpokus/cachelib?status.svg)](https://godoc.org/github.com/karlpokus/cachelib)
+
 # usage
 Create the cache
 ```go
@@ -27,8 +29,9 @@ func route(cache cachelib.Cache) http.HandlerFunc {
 
 # todos
 - [ ] tests
-- [ ] godoc
+- [x] godoc
 - [ ] cache headers
 - [ ] maybe a middleware opt
 
 # license
+MIT
