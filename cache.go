@@ -13,8 +13,8 @@ type Cache interface {
 }
 
 type Response struct {
-	Cached bool
-	Data   interface{}
+	Cached bool        `json:"cached"`
+	Data   interface{} `json:"data"`
 }
 
 func (res Response) String() string {
