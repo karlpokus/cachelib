@@ -3,6 +3,11 @@ A simple global cache for go apps. Includes a mutex so it's concurrency safe.
 
 [![GoDoc](https://godoc.org/github.com/karlpokus/cachelib?status.svg)](https://godoc.org/github.com/karlpokus/cachelib)
 
+# install
+```bash
+$ go get github.com/karlpokus/cachelib
+```
+
 # usage
 Create the cache
 ```go
@@ -21,10 +26,15 @@ func route(cache cachelib.Cache) http.HandlerFunc {
 			fmt.Fprintf(w, "%s", cache.Contents(true))
 			return
 		}
+		// cache stale. fetch data.
+		fmt.Fprintf(w, "%s", cache.Update(data))
 	}
-	// cache stale. fetch data.
-	fmt.Fprintf(w, "%s", cache.Update(data))
 }
+```
+
+# test
+```bash
+$ go test
 ```
 
 # todos
