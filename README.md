@@ -8,7 +8,8 @@ Create the cache
 ```go
 import "github.com/karlpokus/cachelib"
 
-cache := &cachelib.Memcache{TTL:time.Duration(10e9)} // 10s
+cache := cachelib.New("10s")
+http.ListenAndServe(":8090", route(cache))
 ```
 Use the cache
 ```go
@@ -22,16 +23,16 @@ func route(cache cachelib.Cache) http.HandlerFunc {
 		}
 	}
 	// cache stale. fetch data.
-	cache.Update(data)
-	fmt.Fprintf(w, "%s", cache.Contents(false))
+	fmt.Fprintf(w, "%s", cache.Update(data))
 }
 ```
 
 # todos
-- [ ] tests
+- [x] tests
 - [x] godoc
 - [ ] cache headers
 - [ ] maybe a middleware opt
+- [ ] remove fresh bool
 
 # license
 MIT
