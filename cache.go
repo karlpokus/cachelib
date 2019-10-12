@@ -57,11 +57,9 @@ func (c *Memcache) Fresh() bool {
 
 // Contents returns the cache and a cached bool in a Response type
 func (c *Memcache) Contents(fresh bool) Response {
-	c.Lock()
-	defer c.Unlock()
 	return Response{
 		Cached: fresh,
-		Data:   c.contents, // will this be a copy? No need for the lock?
+		Data:   c.contents,
 	}
 }
 
